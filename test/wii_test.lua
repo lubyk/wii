@@ -55,9 +55,9 @@ function should.find_first_remote(t)
     t.title:setText('Connected [2]')
   end
 
-  t.now = worker:now()
+  t.now = elapsed()
   t.test = lk.Thread(function()
-    while not t.continue and (worker:now() < t.now + 20000 or t.wiimote) do
+    while not t.continue and (elapsed() < t.now + 20000 or t.wiimote) do
       sleep(20)
     end
     if not t.continue then
